@@ -342,15 +342,15 @@ x_reduceddf.head()
 
 from sklearn.metrics import silhouette_score
 
-def visualize_silhouette_layer(data):
+def visualize_silhouette_layer(new_df3):
     clusters_range = range(2,10)
     results = []
 
     for i in clusters_range:
         km = KMeans(n_clusters=i, random_state=42)
-        cluster_labels = km.fit_predict(data)
+        cluster_labels = km.fit_predict(new_df3)
 
-        silhouette_avg = silhouette_score(data, cluster_labels)
+        silhouette_avg = silhouette_score(new_df3, cluster_labels)
         results.append([i, silhouette_avg])
 
     result = pd.DataFrame(results, columns=["n_clusters", "silhouette_score"])
@@ -362,5 +362,75 @@ def visualize_silhouette_layer(data):
     plt.title('Silhouette Score of K-means Clustering')
     plt.show()
 
-visualize_silhouette_layer(X)
+visualize_silhouette_layer(new_df3)
+
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=2, random_state=0)
+kmeans.fit(new_df3.values)
+new_df3['cluster'] = kmeans.labels_
+new_df3['cluster'] = kmeans.labels_
+
+new_df3.tail()
+
+sns.scatterplot(data=new_df3, x='total_amount_spent', y='Income', hue='cluster')
+
+new_df3['total_amount_spent'] = new_df3['MntCoke'] \
+                              + new_df3['MntFruits'] \
+                              + new_df3['MntMeatProducts'] \
+                              + new_df3['MntFishProducts'] \
+                              + new_df3['MntSweetProducts'] \
+                              + new_df3['MntGoldProds']
+
+nums
+
+num=['Year_Birth','Income','Recency','total_amount_spent','Response','Conversion_rate','umur']
+
+new_df3[num+['cluster']].groupby('cluster')['Income','total_amount_spent'].describe()
+
+a=new_df3[num+['cluster']].groupby('cluster')['Year_Birth','Recency'].describe()
+
+a
+
+b=new_df3[num+['cluster']].groupby('cluster')['Response','Conversion_rate','umur'].describe()
+
+b
+
+map_cluster = {
+    0 : 'No Churn',
+    1 : 'Churn'
+}
+
+new_df3['cluster_mapped'] = new_df3['cluster'].map(map_cluster)
+
+new_df3[num+['cluster']].groupby('cluster')['Income','total_amount_spent'].describe()
+
+sns.set(rc={'figure.figsize':(3,8)})
+sns.countplot(x=new_df3['cluster_mapped'], palette='Blues_d')
+plt.title('#Users per cluster')
+plt.xticks(rotation=20)
+
+num=['Year_Birth','Income','Recency','total_amount_spent','Response','Conversion_rate','umur']
+
+color=['#CDFCF6','#BCCEF8','#98A8F8','#3F0071']
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['Income'])
+plt.title('Total Income per Cluster')
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['Year_Birth'])
+plt.title('Year Birth per Cluster')
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['Recency'])
+plt.title('Recency per Cluster')
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['total_amount_spent'])
+plt.title('total amount spent per Cluster')
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['Response'])
+plt.title('Response per Cluster')
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['Conversion_rate'])
+plt.title('Conversion_rate per Cluster')
+
+sns.boxenplot(x=new_df3['cluster'], y=new_df3['umur'])
+plt.title('umur per Cluster')
 
