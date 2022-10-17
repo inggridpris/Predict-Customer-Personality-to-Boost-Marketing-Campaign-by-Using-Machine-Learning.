@@ -26,7 +26,7 @@
 
 ## Results <br>
 ### -Elbow Method <br>
-![ALT](https://github.com/inggridpris/Predict-Customer-Personality-to-Boost-Marketing-Campaign-by-Using-Machine-Learning./blob/main/fig/elbow.jpg] "Elbow Method")
+![ALT](https://github.com/inggridpris/Predict-Customer-Personality-to-Boost-Marketing-Campaign-by-Using-Machine-Learning./blob/main/fig/elbow.jpg "Elbow Method")
 <br>
 ### -Silhoutte Score <br>
 ![ALT](https://github.com/inggridpris/Predict-Customer-Personality-to-Boost-Marketing-Campaign-by-Using-Machine-Learning./blob/main/fig/silhoutte.jpg  "Silhoutte Score")
