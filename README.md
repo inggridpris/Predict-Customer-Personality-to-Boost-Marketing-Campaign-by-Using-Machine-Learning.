@@ -42,6 +42,7 @@
 For more detail, you can visit the link below:
 https://github.com/inggridpris/Predict-Customer-Personality-to-Boost-Marketing-Campaign-by-Using-Machine-Learning.
 https://drive.google.com/drive/folders/1jyYs_sYFMsnOa3OXuQe3mbKpV6eOUY3D?usp=sharing
+https://medium.com/@inggrianipriscilia/predict-customer-personality-to-boost-marketing-campaign-by-using-machine-learning-1e59b8fddcf0
 
 or you can connect with me with linkedin
 https://www.linkedin.com/in/inggriani-priscilia-69779b179/
